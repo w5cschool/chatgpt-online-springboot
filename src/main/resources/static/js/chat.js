@@ -41,26 +41,45 @@ $(document).ready(function () {
     });
 
     //向页面添加聊天记录的函数，其中包含了打印输入和输出的动态效果
+    // function articlewrapper(answer, str) {
+    //     //用指定的 ID 创建一个新的聊天记录元素并插入到页面的文本流中
+    //     $("#article-wrapper").append('<li class="article-content" id="' + answer + '"><pre></pre></li>');
+    //     //如果后端返回的字符串为空，则以默认字符串代替
+    //     if (str == null || str == "") {
+    //         str = "当前描述可能存在不适，或者服务器超时,未生成成功,请更换词语尝试!";
+    //     }
+    //     let str_ = ''
+    //     let i = 0
+    //     //定时器用于打印动态字符串
+    //     let timer = setInterval(() => {
+    //         if (str_.length < str.length) {
+    //             str_ += str[i++]
+    //             $("#" + answer).children('pre').text(str_ + '_')//打印时加光标
+    //         } else {
+    //             clearInterval(timer)
+    //             $("#" + answer).children('pre').text(str_)//打印时加光标
+    //         }
+    //     }, 0)
+    // }
+
     function articlewrapper(answer, str) {
-        //用指定的 ID 创建一个新的聊天记录元素并插入到页面的文本流中
         $("#article-wrapper").append('<li class="article-content" id="' + answer + '"><pre></pre></li>');
-        //如果后端返回的字符串为空，则以默认字符串代替
         if (str == null || str == "") {
             str = "当前描述可能存在不适，或者服务器超时,未生成成功,请更换词语尝试!";
         }
-        let str_ = ''
-        let i = 0
-        //定时器用于打印动态字符串
-        let timer = setInterval(() => {
-            if (str_.length < str.length) {
-                str_ += str[i++]
-                $("#" + answer).children('pre').text(str_ + '_')//打印时加光标
-            } else {
-                clearInterval(timer)
-                $("#" + answer).children('pre').text(str_)//打印时加光标
-            }
-        }, 50)
+        // 直接设置整个字符串，而不是使用定时器逐字添加
+        $("#" + answer).children('pre').text(str); // 移除了光标模拟
     }
+
+
+    // function articlewrapper(answer, str) {
+    //     if (str == null || str == "") {
+    //         str = "当前描述可能存在不适，或者服务器超时,未生成成功,请更换词语尝试!";
+    //     }
+    //     // 直接将完整的字符串设置到元素的文本内容中，而不是使用定时器逐字显示
+    //     $("#" + answer).html('<pre>' + str + '</pre>');
+    // }
+
 
     //根据图片链接字符串添加聊天记录的函数
     function articlemapping(str) {

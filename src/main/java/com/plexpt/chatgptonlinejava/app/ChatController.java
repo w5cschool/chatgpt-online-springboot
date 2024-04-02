@@ -53,8 +53,8 @@ public class ChatController {
 
     //代理可以为null
     //端口是你的魔法端口
-    static Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 1081));
-    //    Proxy  proxy = Proxy.NO_PROXY;
+//    static Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 1081));
+    static Proxy  proxy = Proxy.NO_PROXY;
 
     //实际请用数据库管理上下文
     private static Map<String, List<Message>> context = new HashMap<>();
